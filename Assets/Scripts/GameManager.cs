@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
             foreach (Way way in currentNode.WayList)
             {
 
+
                 openNodes.Add(way.NodeDestiny);
                 CreateColor(way.NodeDestiny, Color.yellow);
                 yield return new WaitForSeconds(1);
@@ -73,10 +74,7 @@ public class GameManager : MonoBehaviour
                     way.ACUMulatedCost = way.Cost;
                     continue;
                 }
-                if (closedNodes.Contains(way.NodeDestiny))
-                {
-                    
-                }
+
                 way.ACUMulatedCost = way.Cost + currentNode.NodeParent.WayList.FirstOrDefault(x => x.NodeDestiny == currentNode).ACUMulatedCost;
 
 
